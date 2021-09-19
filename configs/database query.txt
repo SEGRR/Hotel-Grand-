@@ -1,0 +1,57 @@
+CREATE TABLE `users` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`email` TEXT NOT NULL,
+	`password` TEXT NOT NULL UNIQUE,
+	`first_name` TEXT NOT NULL,
+	`last_name` TEXT NOT NULL,
+	`address` TEXT NOT NULL,
+	`age` INT NOT NULL,
+	`no_bookings` INT NOT NULL,
+	`status` TEXT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `admin` (
+	`username` TEXT NOT NULL,
+	`password` TEXT NOT NULL
+);
+
+CREATE TABLE `rooms` (
+	`roomd_id` INT NOT NULL,
+	`room_name` TEXT NOT NULL,
+	`room_type` TEXT NOT NULL,
+	`price` DECIMAL NOT NULL,
+	`photo_1` blob NOT NULL,
+	`photo_2` blob,
+	`photo_3` blob,
+	`ac` BOOLEAN,
+	`bed_type` TEXT NOT NULL,
+	`no_bed` TEXT NOT NULL,
+	`available` BOOLEAN,
+	`discription` TEXT NOT NULL,
+	`room_number` INT NOT NULL,
+	PRIMARY KEY (`roomd_id`)
+);
+
+CREATE TABLE `bookings` (
+	`booking_id` INT(4) NOT NULL,
+	`booked_by` INT(4) NOT NULL,
+	`room_id` INT NOT NULL,
+	`room_number` INT NOT NULL,
+	`booking_date` DATE NOT NULL,
+	`checkin` DATE NOT NULL,
+	`checkout` DATE NOT NULL,
+	`paymentdone` BOOLEAN NOT NULL,
+	`no_people` INT NOT NULL,
+	PRIMARY KEY (`booking_id`)
+);
+
+ALTER TABLE `bookings` ADD CONSTRAINT `bookings_fk0` FOREIGN KEY (`booked_by`) REFERENCES `users`(`id`);
+
+ALTER TABLE `bookings` ADD CONSTRAINT `bookings_fk1` FOREIGN KEY (`room_id`) REFERENCES `rooms`(`roomd_id`);
+
+ALTER TABLE `bookings` ADD CONSTRAINT `bookings_fk2` FOREIGN KEY (`room_number`) REFERENCES `rooms`(`room_number`);
+
+
+
+
