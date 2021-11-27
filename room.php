@@ -408,7 +408,7 @@ session_start();
                       if(mysqli_num_rows($result) == 0){
                        
                           array_push($available_rooms,$one_room);
-                          $rooms--;
+                          $rooms_dup--;
                       }
 
  
@@ -462,24 +462,24 @@ session_start();
               </button>
             </li>
           </ul>
-  
+          <form action="payment.html" method='post'>
           <div class="tab-content p-3" id="myTabContent">
               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                  
                   <div class="col-6">
-                  <form action="payment.html" method='post'>
+                 
                       <label class="form-label" for="upi">Enter UPI ID</label>
                       <input class="form-control" type="text" name="upi" id="upi" required>
                     
                   </div>
   
                   <div class="col-6 mt-2">
-                  <a href='payment.html'><button type="button" class="btn btn-success" name="card_payment">Pay Now</button></a>
+                  <a href='payment.php'><button type="button" class="btn btn-success" name="card_payment">Pay Now</button></a>
                        </div>
-                 </form>       
+                 <!-- </form>        -->
               </div>
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-              <form action="payment.html" method='post'>
+              <!-- <form action="payment.html" method='post'> -->
                   <div class="col-1">
                       <label class="form-label" for="cvv">CVV</label>
                       <input class="form-control" type="password" name="cvv" id="cvv" required>
@@ -494,9 +494,9 @@ session_start();
                     
                   <div class="col-6 m-2">
                    
-                 <a href='payment.html'><button type="button" class="btn btn-success" name="card_payment">Pay Now</button></a>
+                 <a href='payment.php'><button type="button" class="btn btn-success" name="card_payment">Pay Now</button></a>
                    </div>
-            </form>
+            <!-- </form> -->
               </div>
               <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                  <h5 class="text-success">
@@ -504,7 +504,7 @@ session_start();
                  </h5>
                  <div class="col-6">
                   <label for="inputAddress" class="form-label">Chekin Date</label>
-                  <input type="date" value="<?php echo $checkin ; ?>" class="form-control" id="inputAddress" name="Chekin" placeholder="1234 Main St" readonly>
+                  <input type="date" value="<?php echo $checkin ; ?>" class="form-control" id="inputAddress" name="Chekin" placeholder="Cheakin date" readonly>
                 </div>
   
                  <p class="text-secondary mt-1">
@@ -516,8 +516,8 @@ session_start();
                  </p>
   
                  <div class="col-6 m-2">
-                 <form action="payment.html" method='post'>
-                 <a href='payment.html'><button type="button" class="btn btn-success" name="card_payment">Pay Now</button></a>
+                 <!-- <form action="payment.php" method='post'> -->
+                 <a href='payment.php'><button type="button" class="btn btn-success" name="card_payment">Pay Now</button></a>
             </form>
                    </div>
               

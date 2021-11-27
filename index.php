@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "configs/config.php";
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,9 +26,7 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
     <title>Hotel Grand</title>
   </head>
-  <?php 
-  include "configs/config.php";
-  ?>
+  
   <!--navbar-->
   <body class="bg-dark">
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -58,7 +57,7 @@ session_start();
                          '.$_SESSION['firstname'].' '.$_SESSION['lastname'].'
                        </button>
                        <ul class="dropdown-menu">
-                         <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                         <li><a class="dropdown-item" href="mybookings.php">My Bookings</a></li>
                          <li><a href="changeDetails.php?email='.$_SESSION['email'].'" class="dropdown-item" href="#">Change Details</a></li>
                          <li><hr class="dropdown-divider"></li>
                          <li><a class="dropdown-item" href="logout.php">Logout</a></li>
