@@ -29,9 +29,7 @@ include "configs/config.php";
               <li class="nav-item">
                 <a class="nav-link active text-light" aria-current="page" href="booking.php">Book Now</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active text-light" href="#">Current offers</a>
-              </li>
+              
               
             </ul>
             
